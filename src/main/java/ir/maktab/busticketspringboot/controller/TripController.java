@@ -21,7 +21,8 @@ public class TripController {
     @PostMapping("/find-trips")
     public ResponseEntity<List<Trip>> displayTrips(@RequestBody Trip trip) {
         List<Trip> tripList = tripService.findAllByOriginAndDestinationAndDepartureDateOrderByDepartureTime(trip.getOrigin(), trip.getDestination(), trip.getDepartureDate());
-        System.out.println(tripList);
         return new ResponseEntity<>(tripList, HttpStatus.OK);
     }
+
+
 }

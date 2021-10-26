@@ -15,6 +15,7 @@ public class User {
     private String username;
     @NotBlank
     private String password;
+    private String token;
 
     @Override
     public String toString() {
@@ -22,6 +23,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
 
@@ -49,4 +51,11 @@ public class User {
         this.password = password;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

@@ -28,4 +28,21 @@ public class UserServiceImpl implements UserService {
     public User findByUsernameAndPassword(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password);
     }
+
+    @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User findByToken(String token) {
+        return userRepository.findByToken(token);
+    }
+
+    @Override
+    public void logout(String token) {
+        User user = findByToken(token);
+        user.setToken(null);
+        userRepository.save(user);
+    }
 }

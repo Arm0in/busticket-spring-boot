@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -36,5 +37,10 @@ public class TripServiceImpl implements TripService {
     public List<Trip> findAllByOriginAndDestinationAndDepartureDateOrderByDepartureTime(String origin, String destination, LocalDate departureDate) {
 
         return tripRepository.findAllByOriginAndDestinationAndDepartureDateOrderByDepartureTime(origin, destination, departureDate);
+    }
+
+    @Override
+    public Optional<Trip> findById(Long id) {
+        return tripRepository.findById(id);
     }
 }
